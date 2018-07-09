@@ -1,0 +1,136 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="name"
+        [formControl]="itemForm.controls['name']"
+        placeholder="Name">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput       
+        name="host"
+        [formControl]="itemForm.controls['host']"
+        placeholder="Host">
+      </mat-form-field>
+    </div>
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="ip"
+        [formControl]="itemForm.controls['ip']"
+        placeholder="IP">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="os"
+        [formControl]="itemForm.controls['os']"
+        placeholder="Operating System">
+      </mat-form-field>
+    </div>
+    <!--  
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="hostApp"
+        [formControl]="itemForm.controls['hostApp']"
+        placeholder="Application Hosted">
+      </mat-form-field>
+    </div>
+    
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="hostAppServer"
+        [formControl]="itemForm.controls['hostAppServer']"
+        placeholder="Application Server">
+      </mat-form-field>
+    </div>
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="appServerPort"
+        [formControl]="itemForm.controls['appServerPort']"
+        placeholder="Application Server Port">
+      </mat-form-field>
+    </div>
+    
+    <div fxFlex="50"  class="pt-1 pr-1">
+      <mat-slide-toggle [formControl]="itemForm.controls['isAppServerSecure']">Application Server Secure?</mat-slide-toggle>
+    </div>	
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="appServerURL"
+        [formControl]="itemForm.controls['appServerURL']"
+        placeholder="Application Server URL">
+      </mat-form-field>
+    </div>
+	
+	--> 
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="core"
+        [formControl]="itemForm.controls['core']"
+        placeholder="No Of Cores">
+      </mat-form-field>
+    </div>
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="ram"
+        [formControl]="itemForm.controls['ram']"
+        placeholder="Ram">
+      </mat-form-field>
+    </div>
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="hdd"
+        [formControl]="itemForm.controls['hdd']"
+        placeholder="Hard Drive">
+      </mat-form-field>
+    </div>
+	
+	<div fxFlex="50"  class="pt-1 pr-1">
+      <mat-slide-toggle [formControl]="itemForm.controls['isVM']">Virtual machine?</mat-slide-toggle>
+    </div>
+     
+    <div fxFlex="50"  class="pt-1 pr-1">
+      <mat-slide-toggle [formControl]="itemForm.controls['isActive']">Active Environment</mat-slide-toggle>
+    </div> 
+   
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>

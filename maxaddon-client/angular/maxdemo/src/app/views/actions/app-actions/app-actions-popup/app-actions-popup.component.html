@@ -1,0 +1,56 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+    
+	<div fxFlex="100"  class="pr-1">
+       <mat-form-field class="full-width">
+		  <mat-select placeholder="Script Type" [formControl]="itemForm.controls['scriptTypeId']" [(ngModel)]="selectedScriptTypeValue">
+		    <mat-option *ngFor="let scriptType of scriptTypeItems" [value]="scriptType.id" >{{ scriptType.name }}</mat-option> 
+		  </mat-select>
+		</mat-form-field> 
+    </div> 
+	
+	<div fxFlex="100"  class="pr-1">
+       <mat-form-field class="full-width">
+		  <mat-select placeholder="Execute on Server" [formControl]="itemForm.controls['serverId']" [(ngModel)]="selectedServerValue">
+		    <mat-option *ngFor="let server of serverItems" [value]="server.id" >{{ server.name }}</mat-option> 
+		  </mat-select>
+		</mat-form-field> 
+    </div> 
+	 
+	<div fxFlex="100"  class="pr-1">
+       <mat-form-field class="full-width">
+		  <mat-select placeholder="Custom Script" [formControl]="itemForm.controls['name']" [(ngModel)]="selectedCustomScriptTypeValue">
+		    <mat-option *ngFor="let customScriptType of customScriptTypeItems" [value]="customScriptType.name" >{{ customScriptType.name }}</mat-option> 
+		  </mat-select>
+		</mat-form-field> 
+    </div> 
+	<!--
+	<div fxFlex="100"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="details"
+        [formControl]="itemForm.controls['details']"
+        placeholder="Script Details">
+      </mat-form-field>
+    </div> 
+	
+	<div fxFlex="100"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="content"
+        [formControl]="itemForm.controls['content']"
+        placeholder="Script Content">
+      </mat-form-field>
+    </div> 
+	-->
+	
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Search</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>

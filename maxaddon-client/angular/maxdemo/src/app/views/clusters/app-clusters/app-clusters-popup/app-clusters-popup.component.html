@@ -1,0 +1,39 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+    
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="name"
+        [formControl]="itemForm.controls['name']"
+        placeholder="Name">
+      </mat-form-field>
+    </div>
+ 
+    <div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput       
+        name="identification"
+        [formControl]="itemForm.controls['identification']"
+        placeholder="identification">
+      </mat-form-field>
+    </div>
+	   
+	<div fxFlex="50"  class="pr-1">
+       <mat-form-field class="full-width">
+		  <mat-select placeholder="Servers" [formControl]="itemForm.controls['serverId']" [(ngModel)]="selectedServerValue">
+		    <mat-option *ngFor="let server of serverItems" [value]="server.id" >{{ server.name }}</mat-option> 
+		  </mat-select>
+		</mat-form-field> 
+    </div> 
+	
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>
